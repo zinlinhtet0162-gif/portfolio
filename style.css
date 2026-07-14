@@ -1,0 +1,156 @@
+.container{
+    overflow: hidden;
+}
+body {
+    background-color: #121212;
+    color: #E5E5E5;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #FFFFFF !important;
+}
+
+.nav-link {
+    color: #A0A0A0 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00F2FE !important;
+    /* Neon Cyan Accent - Hover အရောင် */
+}
+
+.text-accent {
+    color: #00F2FE !important;
+    transition: all 0.5s;
+
+}
+
+
+
+.text-muted-custom {
+    color: #A0A0A0;
+}
+
+.text-description {
+    color: #B3B3B3;
+}
+
+/* Buttons Customization */
+.btn-accent {
+    background-color: #00F2FE;
+    color: #121212;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background-color: #00b8c4;
+    color: #121212;
+    transform: translateY(-2px);
+}
+
+.btn-outline-custom {
+    border: 1px solid #3A3A3A;
+    color: #E5E5E5;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: #222222;
+    border-color: #555555;
+    color: #E5E5E5;
+    transform: translateY(-2px);
+}
+
+/* Avatar Container */
+.avatar-box {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1A1A1A, #2A2A2A);
+    border: 2px solid #3A3A3A;
+    overflow: hidden;
+}
+
+.avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Section Heading Underline Accent */
+.section-title {
+    color: #FFFFFF;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 3px;
+    background-color: #00F2FE;
+}
+
+.btn-outline-accent {
+    color: #00F2FE;
+    border-color: #00F2FE;
+}
+
+.btn-outline-accent:hover {
+    background-color: #00F2FE;
+    color: #000;
+}
+
+.bg-accent {
+    background-color: #00F2FE;
+}
+
+.contact-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: #00F2FE !important;
+}
+
+.Scroll {
+    
+    opacity: 0;
+    transition: all 0.9s ease-out;
+    transform: translateX(50px);
+}
+
+.Scroll.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#Name {
+    animation: slide 3s ease-in;
+}
+
+@keyframes slide {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="မြန်မာပြည်အတွက် အကောင်းဆုံး အသက်တွက်ချက်ပေးသည့် App - Age Calculator MM">
+        <meta name="keywords" content="agecalculate, age calculator, အသက်တွက်နည်း, အသက်တွက်စက်">
+        <meta name="author" content="Your Name">
+
+        <title>Age Calculator - Perfect Layout</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
+
+            body {
+                background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .wrapper {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            /* Frosted Glass Card */
+            .calculator-card {
+                background: rgba(255, 255, 255, 0.07);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 24px;
+                padding: 40px 30px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+                text-align: center;
+            }
+
+            .card-title {
+                color: #ffffff;
+                font-size: 1.8rem;
+                font-weight: 700;
+                margin-bottom: 8px;
+            }
+
+            .card-subtitle {
+                color: #94a3b8;
+                font-size: 0.9rem;
+                margin-bottom: 30px;
+            }
+
+            .form-group {
+                text-align: left;
+                margin-bottom: 25px;
+            }
+
+            .form-label {
+                display: block;
+                color: #cbd5e1;
+                font-size: 0.9rem;
+                font-weight: 500;
+                margin-bottom: 12px;
+            }
+
+            /* Input အကွက် ၃ ခုကို စနစ်တကျ ထိန်းထားမယ့် Grid */
+            .input-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1.2fr;
+                gap: 12px;
+                width: 100%;
+            }
+
+            .input-box-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .input-sub-label {
+                color: #94a3b8;
+                font-size: 0.75rem;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .custom-input {
+                width: 100%;
+                background: rgba(15, 23, 42, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 12px;
+                font-size: 1.05rem;
+                outline: none;
+                text-align: center;
+            }
+
+            .custom-input:focus {
+                border-color: #06b6d4;
+                box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+            }
+
+            /* Number input ရဲ့ ဘေးက မြှားအသေးလေးတွေကို ဖျောက်ထားခြင်း */
+            .custom-input::-webkit-outer-spin-button,
+            .custom-input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Submit Button */
+            .btn-submit {
+                width: 100%;
+                background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+                border: none;
+                border-radius: 12px;
+                padding: 15px;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: white;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            }
+
+            .btn-submit:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+            }
+
+            /* Result Area */
+            .result-box {
+                background: rgba(15, 23, 42, 0.4);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 16px;
+                margin-top: 25px;
+                padding: 20px;
+                display: none;
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .result-text-en {
+                font-size: 1.25rem;
+                font-weight: 700;
+                background: linear-gradient(90deg, #38bdf8, #f472b6);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="calculator-card">
+            <h2 class="card-title">Age Calculator</h2>
+            <p class="card-subtitle"></p>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Date of Birth</label>
+                    <div class="input-grid">
+
+                        <div class="input-box-container">
+                            <span class="input-sub-label">Day</span>
+                            <input type="number" id="birthDay" class="custom-input" placeholder="DD" min="1" max="31"
+                                required>
+                        </div>
+
+                        <div class="input-box-container">
+                            <span class="input-sub-label">Month</span>
+                            <input type="number" id="birthMonth" class="custom-input" placeholder="MM" min="1" max="12"
+                                required>
+                        </div>
+
+                        <div class="input-box-container">
+                            <span class="input-sub-label">Year</span>
+                            <input type="number" id="birthYear" class="custom-input" placeholder="YYYY" min="1900"
+                                max="" required>
+                        </div>
+
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+
+            <div id="resultBox" class="result-box">
+                <h4 class="result-text-en" id="resultEN"></h4>
+                <div class="form-group" style="margin-top: 25px;">
+                    <button type="button" onclick="showRandomQuote()" class="btn-submit"
+                        style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); padding: 10px; font-size: 0.95rem;">
+                        Inspire Me ✨
+                    </button>
+
+                    <div id="quoteBox"
+                        style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.05); border-left: 4px solid #8b5cf6; border-radius: 8px; text-align: left; display: none;">
+                        <p id="quoteText"
+                            style="color: #e2e8f0; font-style: italic; font-size: 0.95rem; line-height: 1.5;"></p>
+                        <span id="quoteAuthor"
+                            style="color: #94a3b8; font-size: 0.8rem; display: block; margin-top: 8px; text-align: right;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="j1.js"></script>
+</body>
+
+</html>
